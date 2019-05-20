@@ -1,6 +1,6 @@
 {
   "name": "node-crypto-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Node (RSA+AES) encryption and decryption companion for hybrid-crypto-js",
   "main": "lib/index.js",
   "scripts": {
