@@ -1,4 +1,4 @@
-# Hybrid Crypto JS
+# Node Crypto JS
 
 [![NPM](https://nodei.co/npm/node-crypto-js.png?compact=true)](https://nodei.co/npm/node-crypto-js/)
 
@@ -65,7 +65,7 @@ var rsa = new RSA({ entropy: entropy });
 
 <a name="encryption"></a>
 
-_Hybrid Crypto JS_ provides basic encryption function which supports also multiple RSA keys, with or without [signature](#signatures). Encrypted message is outputted as a JSON string.
+_Node Crypto JS_ provides basic encryption function which supports also multiple RSA keys, with or without [signature](#signatures). Encrypted message is outputted as a JSON string.
 
 ```js
 var message = 'Hello world!';
