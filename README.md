@@ -48,7 +48,7 @@ var Crypt = require('node-crypto-js').Crypt;
 **React Native**
 
 ```js
-import { Crypt, keyManager, RSA } from 'node-crypto-js';
+import { Crypt, RSA } from 'node-crypto-js';
 ```
 
 **Web**
@@ -203,22 +203,5 @@ rsa.generateKeypair(function(keypair) {
 var rsa = new RSA({
   keySize: 4096,
   rsaStandard: 'RSA-OAEP' // RSA-OAEP or RSAES-PKCS1-V1_5,
-});
-```
-
-### React Native key management
-
-<a name="rn-key-management"></a>
-
-Key manager works when using React Native. It automatically generates, saves and fetches device specific keypair from the device's storage.
-
-```js
-import { keyManager } from 'node-crypto-js';
-
-// Get device specific RSA key pair
-keyManager.getKeys(function(keypair) {
-  // Callback function receives new keypair as a first argument
-  var publicKey = keypair.publicKey;
-  var privateKey = keypair.privateKey;
 });
 ```
