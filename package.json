@@ -13,9 +13,7 @@
   "keywords": [
     "rsa",
     "aes",
-    "rsa+aes",
-    "react",
-    "native"
+    "rsa+aes"
   ],
   "author": "Nusrath Khan <nusrath501khan@gmail.com>",
   "license": "MIT",

@@ -6,7 +6,7 @@
 
 <a name="introduction"></a>
 
-_Hybrid Crypto JS_ is a hybrid (RSA+AES) encryption and decryption toolkit for JavaScript, including automatic and persistent key management on React Native. _Hybrid Crypto JS_ combines RSA and AES encryption algorithms making it possible to efficiently encrypt and decrypt large messages. This cross-platform library is based on [Forge](https://github.com/digitalbazaar/forge).
+_Node Crypto JS_ is a NodeJS (RSA+AES) encryption and decryption companion for hybrid-crypto-js. _Node Crypto JS_ combines RSA and AES encryption algorithms making it possible to efficiently encrypt and decrypt large messages. This node library is based on [hybrid-crypto-js](https://www.npmjs.com/package/hybrid-crypto-js).
 
 ## Documentation
 
@@ -26,7 +26,6 @@ _Hybrid Crypto JS_ is a hybrid (RSA+AES) encryption and decryption toolkit for J
 - [Signatures](#signatures)
 - [Verifying](#verifying)
 - [RSA keypairs](#rsa-keypairs)
-- [React Native key management](#rn-key-management)
 
 ### Installation
 
@@ -43,20 +42,6 @@ npm install node-crypto-js
 ```js
 var RSA = require('node-crypto-js').RSA;
 var Crypt = require('node-crypto-js').Crypt;
-```
-
-**React Native**
-
-```js
-import { Crypt, RSA } from 'node-crypto-js';
-```
-
-**Web**
-
-Download minified _hybrid-crypto.min.js_ file [here](https://raw.githubusercontent.com/nunsie/node-crypto-js/master/web/hybrid-crypto.min.js).
-
-```html
-<script type="text/javascript" src="hybrid-crypto.min.js"></script>
 ```
 
 ## Features
