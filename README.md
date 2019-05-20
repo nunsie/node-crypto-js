@@ -1,23 +1,25 @@
 # Hybrid Crypto JS
 
-[![NPM](https://nodei.co/npm/hybrid-crypto-js.png?compact=true)](https://nodei.co/npm/hybrid-crypto-js/)
+[![NPM](https://nodei.co/npm/node-crypto-js.png?compact=true)](https://nodei.co/npm/node-crypto-js/)
 
 ## Introduction
 
 <a name="introduction"></a>
 
-*Hybrid Crypto JS* is a hybrid (RSA+AES) encryption and decryption toolkit for JavaScript, including automatic and persistent key management on React Native. *Hybrid Crypto JS* combines RSA and AES encryption algorithms making it possible to efficiently encrypt and decrypt large messages. This cross-platform library is based on [Forge](https://github.com/digitalbazaar/forge).
+_Hybrid Crypto JS_ is a hybrid (RSA+AES) encryption and decryption toolkit for JavaScript, including automatic and persistent key management on React Native. _Hybrid Crypto JS_ combines RSA and AES encryption algorithms making it possible to efficiently encrypt and decrypt large messages. This cross-platform library is based on [Forge](https://github.com/digitalbazaar/forge).
 
 ## Documentation
 
 <a name="documentation"></a>
 
 **Getting started**
+
 - [Introduction](#introduction)
 - [Documentation](#documentation)
 - [Installation](#installation)
 
 **Features**
+
 - [Initialization](#initialization)
 - [Encryption](#encryption)
 - [Decryption](#decryption)
@@ -31,7 +33,7 @@
 <a name="installation"></a>
 
 ```
-npm install hybrid-crypto-js
+npm install node-crypto-js
 ```
 
 ### Importing
@@ -39,19 +41,20 @@ npm install hybrid-crypto-js
 **Node.js**
 
 ```js
-var RSA = require('hybrid-crypto-js').RSA;
-var Crypt = require('hybrid-crypto-js').Crypt;
+var RSA = require('node-crypto-js').RSA;
+var Crypt = require('node-crypto-js').Crypt;
 ```
 
 **React Native**
 
 ```js
-import {Crypt, keyManager, RSA} from 'hybrid-crypto-js';
+import { Crypt, keyManager, RSA } from 'node-crypto-js';
 ```
 
 **Web**
 
-Download minified *hybrid-crypto.min.js* file [here](https://raw.githubusercontent.com/juhoen/hybrid-crypto-js/master/web/hybrid-crypto.min.js).
+Download minified _hybrid-crypto.min.js_ file [here](https://raw.githubusercontent.com/nunsie/node-crypto-js/master/web/hybrid-crypto.min.js).
+
 ```html
 <script type="text/javascript" src="hybrid-crypto.min.js"></script>
 ```
@@ -68,16 +71,16 @@ var crypt = new Crypt();
 var rsa = new RSA();
 
 // Increase amount of entropy
-var entropy = "Random string, integer or float";
-var crypt = new Crypt({entropy: entropy});
-var rsa = new RSA({entropy: entropy});
+var entropy = 'Random string, integer or float';
+var crypt = new Crypt({ entropy: entropy });
+var rsa = new RSA({ entropy: entropy });
 ```
 
 ### Encryption
 
 <a name="encryption"></a>
 
-*Hybrid Crypto JS* provides basic encryption function which supports also multiple RSA keys, with or without [signature](#signatures). Encrypted message is outputted as a JSON string.
+_Hybrid Crypto JS_ provides basic encryption function which supports also multiple RSA keys, with or without [signature](#signatures). Encrypted message is outputted as a JSON string.
 
 ```js
 var message = 'Hello world!';
@@ -93,9 +96,10 @@ var encrypted = crypt.encrypt(publicKey, message, signature);
 ```
 
 **Pretty-printed sample output**
+
 ```js
 {
-    "v": "hybrid-crypto-js_0.1.2",        // Current package version
+    "v": "node-crypto-js_0.1.2",        // Current package version
     "iv": "CmtyaZTyzoAp1mTNUTztic0v1...", // Initialization vector
     "keys": {                             // Encrypted AES keys by RSA fingerprints
         "85:3d:10:e1:56...": "bHaTF9...",
@@ -111,10 +115,10 @@ var encrypted = crypt.encrypt(publicKey, message, signature);
 
 <a name="decryption"></a>
 
-Decrypting message with *Hybrid Crypto JS* is as easy as encrypting. Decryption function can decrypt any message which has been encrypted with keypair's public key. Decrypted message is outputted as a JSON object.
+Decrypting message with _Hybrid Crypto JS_ is as easy as encrypting. Decryption function can decrypt any message which has been encrypted with keypair's public key. Decrypted message is outputted as a JSON object.
 
 ```js
-var encrypted = '{"v":"hybrid-crypto-js_0.1.0","iv":"CmtyaZTyzoAp1mTN...';
+var encrypted = '{"v":"node-crypto-js_0.1.0","iv":"CmtyaZTyzoAp1mTN...';
 
 // Decrypt encryped message with private RSA key
 var decrypted = crypt.decrypt(privateKey, encrypted);
@@ -122,7 +126,9 @@ var decrypted = crypt.decrypt(privateKey, encrypted);
 // Get decrypted message
 var message = decrypted.message;
 ```
+
 **Sample output**
+
 ```js
 {
     message: "Hello world!",            // Actual decrypted message
@@ -134,7 +140,7 @@ var message = decrypted.message;
 
 <a name="signatures"></a>
 
-*Hybrid Crypto JS* provides simple message signing. When issuer signs a message, message receiver can be sure of the message issuer.
+_Hybrid Crypto JS_ provides simple message signing. When issuer signs a message, message receiver can be sure of the message issuer.
 
 ```js
 var message = 'Hello world!';
@@ -160,15 +166,20 @@ var encrypted = '{"v":"hybri... ..."signature":"sdL93kfd...';
 var decrypted = crypt.decrypt(receiverPrivateKey, encrypted);
 
 // Verify message with ISSUER's public key
-var verified = crypt.verify(issuerPublicKey, decrypted.signature, decrypted.message);
+var verified = crypt.verify(
+  issuerPublicKey,
+  decrypted.signature,
+  decrypted.message
+);
 ```
-Verification function return *true* or *false* depending on whether the verification was successfull.
+
+Verification function return _true_ or _false_ depending on whether the verification was successfull.
 
 ### RSA keypairs
 
 <a name="rsa-keypairs"></a>
 
-*Hybrid Crypto JS* RSA key generation function is based in [Forge](https://github.com/digitalbazaar/forge#rsa) key pair generation function. As a difference *Hybrid Crypto JS* returns keypair in PEM format.
+_Hybrid Crypto JS_ RSA key generation function is based in [Forge](https://github.com/digitalbazaar/forge#rsa) key pair generation function. As a difference _Hybrid Crypto JS_ returns keypair in PEM format.
 
 ```js
 // Initialize RSA-class
@@ -176,28 +187,24 @@ var rsa = new RSA();
 
 // Generate RSA key pair, defaults on 4096 bit key
 rsa.generateKeypair(function(keypair) {
-
-    // Callback function receives new keypair as a first argument
-    var publicKey = keypair.publicKey;
-    var privateKey = keypair.privateKey;
+  // Callback function receives new keypair as a first argument
+  var publicKey = keypair.publicKey;
+  var privateKey = keypair.privateKey;
 });
 
 // Generate 1024 bit RSA key pair
 rsa.generateKeypair(function(keypair) {
-
-    // Callback function receives new 1024 bit keypair as an argument
-    var publicKey = keypair.publicKey;
-    var privateKey = keypair.privateKey;
-}, 1024);  // Key size
+  // Callback function receives new 1024 bit keypair as an argument
+  var publicKey = keypair.publicKey;
+  var privateKey = keypair.privateKey;
+}, 1024); // Key size
 
 // RSA can be also initialized with options
 var rsa = new RSA({
-    keySize: 4096, 
-    rsaStandard: 'RSA-OAEP'  // RSA-OAEP or RSAES-PKCS1-V1_5, 
+  keySize: 4096,
+  rsaStandard: 'RSA-OAEP' // RSA-OAEP or RSAES-PKCS1-V1_5,
 });
-
 ```
-
 
 ### React Native key management
 
@@ -206,13 +213,12 @@ var rsa = new RSA({
 Key manager works when using React Native. It automatically generates, saves and fetches device specific keypair from the device's storage.
 
 ```js
-import {keyManager} from 'hybrid-crypto-js';
+import { keyManager } from 'node-crypto-js';
 
 // Get device specific RSA key pair
 keyManager.getKeys(function(keypair) {
-
-    // Callback function receives new keypair as a first argument
-    var publicKey = keypair.publicKey;
-    var privateKey = keypair.privateKey;
+  // Callback function receives new keypair as a first argument
+  var publicKey = keypair.publicKey;
+  var privateKey = keypair.privateKey;
 });
 ```

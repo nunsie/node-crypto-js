@@ -1,40 +1,35 @@
 {
-  "name": "hybrid-crypto-js",
-  "version": "0.1.7",
-  "description": "Hybrid (RSA+AES) encryption and decryption toolkit for JavaScript",
+  "name": "node-crypto-js",
+  "version": "1.0.0",
+  "description": "Node (RSA+AES) encryption and decryption companion for hybrid-crypto-js",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --require babel-core/register -R spec",
-    "webpack": "browserify lib/webpack.js -o web/hybrid-crypto.js -t [ babelify --presets [ react-native ] ]",
-    "uglify": "uglifyjs web/hybrid-crypto.js -o web/hybrid-crypto.min.js"
+    "test": "mocha --require babel-core/register -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juhoen/react-native-hybrid-crypto.git"
+    "url": "git+https://github.com/nunsie/node-crypto-js.git"
   },
   "keywords": [
     "rsa",
     "aes",
     "rsa+aes",
-    "react-native",
     "react",
     "native"
   ],
-  "author": "Juho Enala <juho.enala@gmail.com>",
+  "author": "Nusrath Khan <nusrath501khan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/juhoen/react-native-hybrid-crypto/issues"
+    "url": "https://github.com/nunsie/node-crypto-js/issues"
   },
-  "homepage": "https://github.com/juhoen/react-native-hybrid-crypto#readme",
-  "peerDependencies": {
-    "react-native": ">= 0.48.0"
-  },
+  "homepage": "https://github.com/nunsie/node-crypto-js#readme",
   "dependencies": {
     "node-forge": "^0.7.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "1.6.0",
+    "babel-preset-es2016": "^6.24.1",
     "babelify": "^8.0.0",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
@@ -42,7 +37,7 @@
   },
   "babel": {
     "presets": [
-      "react-native"
+      "es2016"
     ]
   }
 }
